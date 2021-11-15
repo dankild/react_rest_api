@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Navbar     from "./parts/navbar";
+import Navbar     from "./parts/navbar/navbar";
 import Footer     from "./parts/footer";
 
 import NoMatch    from "./pages/404"
@@ -14,9 +14,9 @@ import UserEdit   from "./pages/users/edit";
 import UserDelete from "./pages/users/delete";
 
 import TodoList   from "./pages/todos/list";
-import TodoCreate from "./pages/users/create";
-import TodoEdit   from "./pages/users/edit";
-import TodoDelete from "./pages/users/delete";
+import TodoCreate from "./pages/todos/create";
+import TodoEdit   from "./pages/todos/edit";
+import TodoDelete from "./pages/todos/delete";
 
 export default function App() { 
   return (
@@ -29,9 +29,9 @@ export default function App() {
           <Route path="/users"             element={<UserList/>}/>
           <Route path="/todos"             element={<TodoList/>}/>
           <Route path="/users/:id"         element={<User/>}/>
-          {/*<Route path="/users/create"     element={<UserCreate/>}/>
+          <Route path="/users/create"      element={<UserCreate/>}/>
           <Route path="/todos/create"      element={<TodoCreate/>}/>
-          <Route path="/users/:id/edit"    element={<UserEdit />}/>
+          {/*<Route path="/users/:id/edit"    element={<UserEdit />}/>
           <Route path="/todos/:id/edit"    element={<TodoEdit />}/>
           <Route path="/users/:id/delete"  element={<UserDelete />}/>
           <Route path="/todos/:id/delete"  element={<TodoDelete />}/>*/}
