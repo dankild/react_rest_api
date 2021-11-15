@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import FetchObjs from "./fetch";
+import Get from "../rest/get";
 
 function Navbar() {
-	let users = FetchObjs('users');
+	let users = Get('users');
 
 	let ready = () => users.length >= 1;
 

@@ -1,12 +1,12 @@
 import React from "react";
 
-import FetchObjs from "../../parts/fetch";
+import Get from "../../rest/get";
 import Buttons from "../../parts/buttons";
 import AppLink from "../../parts/link";
 import Table from "../../parts/table";
 
 export default function UserList(){   
-    let users = FetchObjs('users');
+    let users = Get('users');
     let head = ['ID', 'Username', '']
     let ready = () => users.length >=1
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FetchObjs(link) {
+export default function Get(link) {
   let [objarray, setState] = React.useState([]); 
 
   React.useEffect(() => {

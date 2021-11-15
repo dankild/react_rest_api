@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import FetchObjs from "../../parts/fetch";
+import Get from "../../rest/get";
 import Buttons from "../../parts/buttons";
 import AppLink from "../../parts/link";
 import Table from "../../parts/table";
@@ -10,8 +10,8 @@ export default function User(){
     let head = ['ID', 'Todo', ''];
 
     let { id } = useParams();
-    let user = FetchObjs('users/'+id);
-    let todos = FetchObjs('users/'+id+'/facts');
+    let user = Get('users/'+id);
+    let todos = Get('users/'+id+'/facts');
     let ready = () => user !== undefined && todos.length >=1
     let title = user.username+"'s todos:"
 

@@ -1,14 +1,14 @@
 import React from "react";
 
-import FetchObjs from "../../parts/fetch";
+import Get from "../../rest/get";
 import Buttons from "../../parts/buttons";
 import AppLink from "../../parts/link";
 import Table from "../../parts/table";
 
 export default function TodoList(){
 
-    let todos = FetchObjs('facts');
-    let users = FetchObjs('users');
+    let todos = Get('facts');
+    let users = Get('users');
     let head = ['ID', 'Todo', 'Assignee', ''];
 
     function Body(){
