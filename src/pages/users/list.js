@@ -1,8 +1,9 @@
 import React from "react";
 
-import FetchObjs from "../parts/fetch";
-import Buttons from "../parts/buttons";
-import Table from "../parts/table";
+import FetchObjs from "../../parts/fetch";
+import Buttons from "../../parts/buttons";
+import AppLink from "../../parts/link";
+import Table from "../../parts/table";
 
 export default function UserList(){   
     let users = FetchObjs('users');
@@ -13,7 +14,10 @@ export default function UserList(){
         return users.map((user) => {return (
             <tr>
                 <td className="align-middle">{user.id}</td>
-                <td className="align-middle">{user.username}</td>
+                <td className="align-middle">
+                    <AppLink to={"/users/"+user.id} 
+                    text={user.username}/>
+                </td>
                 <td className="align-middle text-end">
                     <Buttons link={user.id+"/"}/>
                 </td>

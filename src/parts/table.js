@@ -1,3 +1,5 @@
+import Loader from "./loader";
+
 export default function Table(props){
     return (
         <div>
@@ -14,7 +16,7 @@ export default function Table(props){
                 </tbody>
             </table>
             :
-            <p>Loading ...</p>
+            <Loader />
             }
         </div> 
     )

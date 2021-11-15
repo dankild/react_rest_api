@@ -1,44 +1,43 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Navbar   from "./parts/navbar";
-import Footer   from "./parts/footer";
-import NoMatch  from "./pages/404"
-import Home     from "./pages/home";
-import Todo     from "./pages/todo";
-import User     from "./pages/user";
-import TodoList from "./pages/todos";
-import UserList from "./pages/users";
+import Navbar     from "./parts/navbar";
+import Footer     from "./parts/footer";
 
-function App() { 
+import NoMatch    from "./pages/404"
+import Home       from "./pages/home";
+
+import User       from "./pages/users/one";
+import UserList   from "./pages/users/list";
+import UserCreate from "./pages/users/create";
+import UserEdit   from "./pages/users/edit";
+import UserDelete from "./pages/users/delete";
+
+import TodoList   from "./pages/todos/list";
+import TodoCreate from "./pages/users/create";
+import TodoEdit   from "./pages/users/edit";
+import TodoDelete from "./pages/users/delete";
+
+export default function App() { 
   return (
     <div>
       <Navbar /> <br/><br/>
       <div className="container">
         <Routes>
-          <Route path="" element={<Home />} />
-          <Route path="users" element={<UserList />}>
-            <Route path=":id" element={<User />}>
-              {/*<Route path="edit" element={<UserEdit />} />
-              <Route path="delete" element={<UserDelete />} />*/}
-            </Route>
-          </Route>
-          <Route path="todos" element={<TodoList />}>
-            <Route path=":id" element={<Todo />} >
-              {/*<Route path="edit" element={<TodoEdit />} />
-              <Route path="delete" element={<TodoDelete />} />*/}
-            </Route>
-          </Route>
-          <Route path="*" element={<NoMatch />} />
+          <Route path="*"                  element={<NoMatch/>}/>
+          <Route path="/"                  element={<Home/>}/>
+          <Route path="/users"             element={<UserList/>}/>
+          <Route path="/todos"             element={<TodoList/>}/>
+          <Route path="/users/:id"         element={<User/>}/>
+          {/*<Route path="/users/create"     element={<UserCreate/>}/>
+          <Route path="/todos/create"      element={<TodoCreate/>}/>
+          <Route path="/users/:id/edit"    element={<UserEdit />}/>
+          <Route path="/todos/:id/edit"    element={<TodoEdit />}/>
+          <Route path="/users/:id/delete"  element={<UserDelete />}/>
+          <Route path="/todos/:id/delete"  element={<TodoDelete />}/>*/}
         </Routes>
       </div>
       <Footer />
     </div>
   )
 }
-
-export default App;
-
-
-//<Route path="/" element={<Home />} />
-//<Route path="about" element={<About />} />
