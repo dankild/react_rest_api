@@ -13,17 +13,11 @@ export default function DropdownUser(){
             <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li className="nav-item"><Link to="/users" className="dropdown-item">All Users</Link></li>
                 <li><hr className="dropdown-divider" /></li>
-                {ready() 
-                    ?
-                    users.map((e) => { return (
-                        <li>
-                            <Link to={"/users/"+e.id} className="dropdown-item" >{e.id}. {e.username}</Link>
-                        </li>
-                    )}) 
-                    :
-                    <li>
-                        <a className="dropdown-item" href="">Fetching users...</a>
-                    </li>
+                {ready() ?
+                users.map((e) => { return (
+                    <li><Link to={"/users/"+e.id} className="dropdown-item" >{e.id}. {e.username}</Link></li>
+                    )}):
+                    <li><p className="dropdown-item">Fetching users...</p></li>
                 }
             </ul>
         </li>

@@ -8,7 +8,7 @@ export default function DropdownCreate(){
             </a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li><Link to={"/users/create"} className="dropdown-item" >Create User</Link></li>
-                <li><Link to={"/todos/create"} className="dropdown-item" >Create Task</Link></li>
+                <li><Link to={"/tasks/create"} className="dropdown-item" >Create Task</Link></li>
             </ul>
         </li>
     )

@@ -12,7 +12,7 @@ export default function Form(props){
             <input 
                 className="btn btn-primary align-center" 
                 type="submit" 
-                value="Submit" />
+                value={props.title} />
         </form>
     )
 }

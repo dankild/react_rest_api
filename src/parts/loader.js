@@ -1,12 +1,8 @@
-import './loader.css';
-
 export default function Loader(){
     return (
-        <div class="spans">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <div className="d-flex align-items-center">
+            <strong>Loading...</strong>
+            <div className="spinner-border ms-auto" role="status" aria-hidden="true"></div>
         </div>
     )
 }

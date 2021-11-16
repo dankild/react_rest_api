@@ -13,10 +13,11 @@ import UserCreate from "./pages/users/create";
 import UserEdit   from "./pages/users/edit";
 import UserDelete from "./pages/users/delete";
 
-import TodoList   from "./pages/todos/list";
-import TodoCreate from "./pages/todos/create";
-import TodoEdit   from "./pages/todos/edit";
-import TodoDelete from "./pages/todos/delete";
+import Task       from "./pages/tasks/one";
+import TaskList   from "./pages/tasks/list";
+import TaskCreate from "./pages/tasks/create";
+import TaskEdit   from "./pages/tasks/edit";
+import TaskDelete from "./pages/tasks/delete";
 
 export default function App() { 
   return (
@@ -27,14 +28,15 @@ export default function App() {
           <Route path="*"                  element={<NoMatch/>}/>
           <Route path="/"                  element={<Home/>}/>
           <Route path="/users"             element={<UserList/>}/>
-          <Route path="/todos"             element={<TodoList/>}/>
+          <Route path="/tasks"             element={<TaskList/>}/>
           <Route path="/users/:id"         element={<User/>}/>
+          <Route path="/tasks/:id"         element={<Task/>}/>
           <Route path="/users/create"      element={<UserCreate/>}/>
-          <Route path="/todos/create"      element={<TodoCreate/>}/>
-          {/*<Route path="/users/:id/edit"    element={<UserEdit />}/>
-          <Route path="/todos/:id/edit"    element={<TodoEdit />}/>
-          <Route path="/users/:id/delete"  element={<UserDelete />}/>
-          <Route path="/todos/:id/delete"  element={<TodoDelete />}/>*/}
+          <Route path="/tasks/create"      element={<TaskCreate/>}/>
+          <Route path="/users/:id/edit"    element={<UserEdit />}/>
+          <Route path="/tasks/:id/edit"    element={<TaskEdit />}/>
+          {/*<Route path="/users/:id/delete"  element={<UserDelete />}/>
+          <Route path="/tasks/:id/delete"  element={<TaskDelete />}/>*/}
         </Routes>
       </div>
       <Footer />
