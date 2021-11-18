@@ -11,7 +11,7 @@ function navItems(){
 	]
 	return links.map(link => {
 		return (
-			<li className="nav-item">
+			<li className="nav-item" key={link[1]}>
 				<Link to={link[0]} className='nav-link'>{link[1]}</Link>
 			</li>
 		)})

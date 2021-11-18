@@ -3,7 +3,6 @@ import Get from "../../rest/get";
 
 export default function DropdownUser(){
 	let users = Get('users');
-	let ready = () => users.length >= 1;
 
     return (
         <li className="nav-item dropdown">
@@ -13,9 +12,13 @@ export default function DropdownUser(){
             <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li className="nav-item"><Link to="/users" className="dropdown-item">All Users</Link></li>
                 <li><hr className="dropdown-divider" /></li>
-                {ready() ?
-                users.map((e) => { return (
-                    <li><Link to={"/users/"+e.id} className="dropdown-item" >{e.id}. {e.username}</Link></li>
+                {users ?
+                users.map((e) => {return (
+                    <li key={e.id}>
+                        <Link to={"/users/"+e.id} className="dropdown-item" >
+                            {e.username}
+                        </Link>
+                    </li>
                     )}):
                     <li><p className="dropdown-item">Fetching users...</p></li>
                 }

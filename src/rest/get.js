@@ -1,13 +1,15 @@
 import React from "react";
 
 export default function Get(link) {
-  let [objarray, setState] = React.useState([]); 
+  let [value, setValue] = React.useState(undefined); 
+  link = 'https://dan-ror-rest-api.herokuapp.com/api/v1/'+link;
 
   React.useEffect(() => {
-    fetch('https://dan-ror-rest-api.herokuapp.com/api/v1/'+link)
+    fetch(link)
       .then(response => response.json())
-      .then(object => setState(object))
-  }, [])
+      .then(object => setValue(object))
+      .catch(error => console.log("error:\n"+error))
+  })
 
-  return objarray;
+  return value;
 }

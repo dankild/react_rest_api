@@ -1,10 +1,13 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
 
 import Navbar     from "./parts/navbar/navbar";
 import Footer     from "./parts/footer";
+import options    from './parts/alert';
 
-import NoMatch    from "./pages/404"
+import NoMatch    from "./pages/404";
 import Home       from "./pages/home";
 
 import User       from "./pages/users/one";
@@ -24,6 +27,7 @@ export default function App() {
     <div>
       <Navbar /> <br/><br/>
       <div className="container">
+        <AlertProvider template={AlertTemplate} {...options}>
         <Routes>
           <Route path="*"                  element={<NoMatch/>}/>
           <Route path="/"                  element={<Home/>}/>
@@ -35,9 +39,10 @@ export default function App() {
           <Route path="/tasks/create"      element={<TaskCreate/>}/>
           <Route path="/users/:id/edit"    element={<UserEdit />}/>
           <Route path="/tasks/:id/edit"    element={<TaskEdit />}/>
-          {/*<Route path="/users/:id/delete"  element={<UserDelete />}/>
-          <Route path="/tasks/:id/delete"  element={<TaskDelete />}/>*/}
+          <Route path="/users/:id/delete"  element={<UserDelete />}/>
+          <Route path="/tasks/:id/delete"  element={<TaskDelete />}/>
         </Routes>
+        </AlertProvider>
       </div>
       <Footer />
     </div>

@@ -1,18 +1,17 @@
 import React from "react";
 
 import Get from "../../rest/get";
-import Buttons from "../../parts/buttons";
-import AppLink from "../../parts/link";
 import Table from "../../parts/table";
+import AppLink from "../../parts/link";
+import Buttons from "../../parts/buttons";
 
 export default function UserList(){   
     let users = Get('users');
     let head = ['ID', 'Username', '']
-    let ready = () => users.length >=1
 
     function Body(){
         return users.map((user) => {return (
-            <tr>
+            <tr key={user.id}>
                 <td className="align-middle">{user.id}</td>
                 <td className="align-middle">
                     <AppLink to={"/users/"+user.id} 
@@ -25,5 +24,10 @@ export default function UserList(){
         )})
     }
 
-    return <Table title="User List" head={head} body={Body} ready={ready} />
+    return <Table 
+                title="User List" 
+                head={head} 
+                body={Body} 
+                ready={users} 
+            />
 }

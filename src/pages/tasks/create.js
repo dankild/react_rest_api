@@ -2,6 +2,10 @@ import React from "react";
 import TaskForm from "./form";
 
 export default function TaskCreate(){
-    let [task, setTask] = React.useState({task: "", user_id:""})
-	return <TaskForm action="Create" value={task} setter={setTask} />
+    return <TaskForm 
+                action="Create" 
+                prevState={{task: "", user_id:"", likes: 0}} 
+                method='post'
+                link='users'
+            />
 }
