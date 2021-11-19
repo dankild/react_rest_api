@@ -1,23 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import DropdownCreate from "./dropdownCreate";
-import DropdownUser from "./dropdownUsers";
-
-function navItems(){
-	let links = [
-		['/', 'Home'],
-		['/tasks', 'Tasks'],
-	]
-	return links.map(link => {
-		return (
-			<li className="nav-item" key={link[1]}>
-				<Link to={link[0]} className='nav-link'>{link[1]}</Link>
-			</li>
-		)})
-}
-
 export default function Navbar() {
+	let navItems = () => {
+		let links = [
+			['/', 'Home'],
+			['/tasks', 'Tasks'],
+			['/users', 'Users']
+		]
+		return links.map(link => {return (
+				<li className="nav-item" key={link[1]}>
+					<Link to={link[0]} className='nav-link'>{link[1]}</Link>
+				</li>
+			)}
+		)
+	}
+
     return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div className="container-fluid">
@@ -28,8 +26,6 @@ export default function Navbar() {
 				<div className="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul className="navbar-nav">
 						{navItems()}
-						<DropdownUser/>
-						<DropdownCreate/>
 					</ul>
 				</div>
 			</div>

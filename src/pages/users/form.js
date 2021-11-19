@@ -22,15 +22,12 @@ export default function UserForm(props){
     )
     
     return <Form 
-                title={props.action+" User"} 
+                title={props.action+" User "} 
                 form={myform} 
                 submit={{
                     method:props.method, 
                     link:props.link, 
-                    data:{
-                        ...props.prevState,
-                        username:name
-                    }
+                    data:{username:name}
                 }}
             />
 }

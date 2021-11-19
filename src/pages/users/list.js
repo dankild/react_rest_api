@@ -1,12 +1,12 @@
 import React from "react";
 
-import Get from "../../rest/get";
 import Table from "../../parts/table";
 import AppLink from "../../parts/link";
+import useFetch from "../../parts/fetch";
 import Buttons from "../../parts/buttons";
 
 export default function UserList(){   
-    let users = Get('users');
+    let users = useFetch("GET", 'users');
     let head = ['ID', 'Username', '']
 
     function Body(){
@@ -29,5 +29,9 @@ export default function UserList(){
                 head={head} 
                 body={Body} 
                 ready={users} 
+                button={{
+                    state:true,
+                    text:'user',
+                    link:"/users/create"}}
             />
 }

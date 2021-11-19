@@ -1,14 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import Get from "../../rest/get";
-import Delete from "../../rest/delete";
 import Loader from "../../parts/loader";
+import useFetch from "../../parts/fetch";
 
 export default function TaskDelete(){
     let { id } = useParams();
-    let user = Get('facts/'+id)
-    let answer = Delete('facts/'+id)
+    let user = useFetch("GET", 'facts/'+id)
+    let answer = useFetch("DELETE",'facts/'+id)
 
     let page = <Loader />
     if (user && answer){

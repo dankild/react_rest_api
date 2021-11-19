@@ -1,11 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Provider as AlertProvider } from 'react-alert'
-import AlertTemplate from 'react-alert-template-basic'
+import Alert from 'react-bootstrap/Alert'
 
-import Navbar     from "./parts/navbar/navbar";
+import Navbar     from "./parts/navbar";
 import Footer     from "./parts/footer";
-import options    from './parts/alert';
 
 import NoMatch    from "./pages/404";
 import Home       from "./pages/home";
@@ -23,11 +21,22 @@ import TaskEdit   from "./pages/tasks/edit";
 import TaskDelete from "./pages/tasks/delete";
 
 export default function App() { 
+  let [alert, setAlert] = React.useState({state:false})
+  const AlertContext = React.createContext(setAlert);
+
   return (
     <div>
       <Navbar /> <br/><br/>
       <div className="container">
-        <AlertProvider template={AlertTemplate} {...options}>
+        
+        <AlertContext.Provider>
+        {alert.state 
+          ?<Alert key={alert.type} variant={alert.type}>
+              {alert.text}
+           </Alert>
+          : <></>}
+        </AlertContext.Provider>
+
         <Routes>
           <Route path="*"                  element={<NoMatch/>}/>
           <Route path="/"                  element={<Home/>}/>
@@ -42,7 +51,6 @@ export default function App() {
           <Route path="/users/:id/delete"  element={<UserDelete />}/>
           <Route path="/tasks/:id/delete"  element={<TaskDelete />}/>
         </Routes>
-        </AlertProvider>
       </div>
       <Footer />
     </div>

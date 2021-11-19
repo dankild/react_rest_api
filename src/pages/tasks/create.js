@@ -6,6 +6,6 @@ export default function TaskCreate(){
                 action="Create" 
                 prevState={{task: "", user_id:"", likes: 0}} 
                 method='post'
-                link='users'
+                link='facts'
             />
 }
