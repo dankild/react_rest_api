@@ -5,7 +5,7 @@ import TaskForm from "./form";
 import Loader from "../../parts/loader";
 import useFetch from "../../parts/fetch";
 
-export default function UserEdit(){
+export default function TaskEdit(){
     let { id } = useParams();
     let task = useFetch("GET", 'facts/'+id)
 
@@ -15,7 +15,7 @@ export default function UserEdit(){
                 action="Edit" 
                 prevState={task} 
                 method='put'
-                link={'facts/'+id}
+                link={id}
             />
     }
 

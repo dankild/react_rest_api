@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
     "history": "^5.1.0",
+    "interactive": "^0.1.9",
+    "node-fetch": "^3.1.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-alert": "^7.0.3",
@@ -44,6 +46,7 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.3.0"
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "react-https-redirect": "^1.1.0"
   }
 }

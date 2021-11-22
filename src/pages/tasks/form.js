@@ -6,11 +6,13 @@ import useFetch from "../../parts/fetch";
 export default function TaskForm(props){
     let users = useFetch("GET", 'users');
 
-    let [task, setTask] = React.useState(props.prevState.task);
+    let [task, setTask] = React.useState(props.prevState.fact);
     let [userId, setUserId] = React.useState(props.prevState.user_id);
     
-    let myform = (
-        <>
+    let title = props.action+" Task"
+
+    let form = (
+        <>       
         <div className="form-floating mb-3">
             <input 
                 type="text" 
@@ -27,6 +29,7 @@ export default function TaskForm(props){
             <p>Choose one of users to asignee task</p>
             <select 
                 className="form-select" 
+                value={userId}
                 onChange={e => setUserId(e.target.value)}
                 required>
                 {users.map((user) => {
@@ -42,13 +45,10 @@ export default function TaskForm(props){
         </>
     )
 
-    return <Form 
-            title={props.action+" Task"} 
-            form={myform} 
-            submit={{
-                method:props.method, 
-                link:props.link, 
-                data:{fact:task, user_id:userId}
-            }}
-        />
+    return Form(
+        props.method, 
+        title,
+        'facts/'+props.link,
+        form,
+        {user_id:Number(userId), fact:task, likes:1});
 }

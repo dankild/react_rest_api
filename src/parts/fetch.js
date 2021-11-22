@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import AlertContext from '../App';
 
-export default function useFetch(method, link, data=undefined, alertState=false){
+export default function useFetch(method, link, data=undefined){
     let [value, setValue] = useState(undefined); 
 
     link = 'https://dan-ror-rest-api.herokuapp.com/api/v1/'+link;
@@ -18,14 +17,7 @@ export default function useFetch(method, link, data=undefined, alertState=false)
           let result = await response.json();
           setValue(result);
 
-					console.log(method+": "+JSON.stringify(data)+'\n'+JSON.stringify(result))
-          if (alertState){
-						<AlertContext.Consumer>
-							{value => {
-								value({state:true, type:'success', text:result.message})
-								setTimeout(() => 	value({state:false}), 5000)}}
-						</AlertContext.Consumer>
-          }
+					/*console.log(method+": "+JSON.stringify(data)+'\n'+JSON.stringify(result))*/
         }
       myfetch();
     }, [])

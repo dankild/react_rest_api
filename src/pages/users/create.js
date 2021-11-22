@@ -6,6 +6,6 @@ export default function UserCreate(){
                 action="Create" 
                 prevState={{username: ''}} 
                 method='POST'
-                link='users'
+                link=''
             />
 }

@@ -6,26 +6,26 @@ import AppLink from "../../parts/link";
 import useFetch from "../../parts/fetch";
 import Buttons from "../../parts/buttons";
 
-let readiness = ['Pending', 'In Progress', 'Done']
-
 export default function User(){
-    let head = ['ID', 'Task', 'Readiness', ''];
+    let head = ['ID', 'Task', ''];
 
     let { id } = useParams();
     let user = useFetch('GET', 'users/'+id);
-    let tasks = useFetch('GET', 'users/'+id+'/facts');
+    let tasks = useFetch('GET', 'facts');
 
     let title = () => user ? user.username+"'s tasks:" : "Tasks:"
 
     function Body(){
         return (tasks 
             ? 
-            tasks.map((task) => {return (task.id == user?.id ?
+            tasks.map((task) => {
+            console.log(`${task.id} == ${user.id} = ${task.user_id == user.id}`);
+            return (task.user_id == user.id ?
             <tr key={task.id}>
                 <td className="align-middle">{task.id}</td>
                 <td className="align-middle">
                     <AppLink to={"/tasks/"+task.id} 
-                        text={readiness[task.likes]}/></td>
+                        text={task.fact}/></td>
                 <td className="align-middle">{task.like}</td>
                 <td className="align-middle text-end">
                     <Buttons link={task.id}/>

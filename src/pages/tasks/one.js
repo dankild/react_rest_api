@@ -9,7 +9,7 @@ let readiness = ['Pending', 'In Progress', 'Done']
 export default function Task(){
     let { id } = useParams();
     let [card, setCard] = React.useState(<Loader />)
-    let link = 'https://dan-ror-rest-api.herokuapp.com/api/v1/facts/'
+    let link = 'https://dan-ror-rest-api.herokuapp.com/api/v1/'
 
     function makeCard(task, user){
         return (
@@ -20,7 +20,6 @@ export default function Task(){
                         <strong>Assignee:</strong> {user.username} <br/>
                         <strong>Task:</strong> {task.fact} <br/>
                         <strong>Start date:</strong> {task.created_at}
-                        <strong>Readiness:</strong> {readiness[task.likes]}
                     </p>
                     <Buttons link={'tasks/'+task.id}/>
                 </div>
@@ -30,9 +29,9 @@ export default function Task(){
 
     React.useEffect(() => {
         async function doubleFetch(){
-            let taskResponse = await fetch(link+id);
-            let userResponse = await fetch(link+task.user_id);
+            let taskResponse = await fetch(link+'facts/'+id);
             let task = await taskResponse.json();
+            let userResponse = await fetch(link+'users/'+task.user_id);
             let user = await userResponse.json();
             setCard(makeCard(task, user));
         }
@@ -41,15 +40,3 @@ export default function Task(){
         
     return card;
 }
-
-/*React.useEffect(() => {
-        fetch(link+id)
-        .then(response => response.json())
-        .then(task => {
-            fetch(link+task.user_id)
-            .then(response => response.json())
-            .then(user => setCard(makeCard(task, user))
-            )
-        }
-    )
-    }, [])*/

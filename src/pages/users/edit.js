@@ -15,7 +15,7 @@ export default function UserEdit(){
                 action="Edit" 
                 prevState={user} 
                 method='PUT'
-                link={'users/'+id}
+                link={id}
             />
     }
 

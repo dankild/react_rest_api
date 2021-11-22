@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Alert from 'react-bootstrap/Alert'
+import HttpsRedirect from 'react-https-redirect';
 
 import Navbar     from "./parts/navbar";
 import Footer     from "./parts/footer";
@@ -21,38 +21,28 @@ import TaskEdit   from "./pages/tasks/edit";
 import TaskDelete from "./pages/tasks/delete";
 
 export default function App() { 
-  let [alert, setAlert] = React.useState({state:false})
-  const AlertContext = React.createContext(setAlert);
-
   return (
-    <div>
-      <Navbar /> <br/><br/>
-      <div className="container">
-        
-        <AlertContext.Provider>
-        {alert.state 
-          ?<Alert key={alert.type} variant={alert.type}>
-              {alert.text}
-           </Alert>
-          : <></>}
-        </AlertContext.Provider>
-
-        <Routes>
-          <Route path="*"                  element={<NoMatch/>}/>
-          <Route path="/"                  element={<Home/>}/>
-          <Route path="/users"             element={<UserList/>}/>
-          <Route path="/tasks"             element={<TaskList/>}/>
-          <Route path="/users/:id"         element={<User/>}/>
-          <Route path="/tasks/:id"         element={<Task/>}/>
-          <Route path="/users/create"      element={<UserCreate/>}/>
-          <Route path="/tasks/create"      element={<TaskCreate/>}/>
-          <Route path="/users/:id/edit"    element={<UserEdit />}/>
-          <Route path="/tasks/:id/edit"    element={<TaskEdit />}/>
-          <Route path="/users/:id/delete"  element={<UserDelete />}/>
-          <Route path="/tasks/:id/delete"  element={<TaskDelete />}/>
-        </Routes>
+    <HttpsRedirect>
+      <div>
+        <Navbar /> <br/><br/>
+        <div className="container">
+          <Routes>
+            <Route path="*"                  element={<NoMatch/>}/>
+            <Route path="/"                  element={<Home/>}/>
+            <Route path="/users"             element={<UserList/>}/>
+            <Route path="/tasks"             element={<TaskList/>}/>
+            <Route path="/users/:id"         element={<User/>}/>
+            <Route path="/tasks/:id"         element={<Task/>}/>
+            <Route path="/users/create"      element={<UserCreate/>}/>
+            <Route path="/tasks/create"      element={<TaskCreate/>}/>
+            <Route path="/users/:id/edit"    element={<UserEdit />}/>
+            <Route path="/tasks/:id/edit"    element={<TaskEdit />}/>
+            <Route path="/users/:id/delete"  element={<UserDelete />}/>
+            <Route path="/tasks/:id/delete"  element={<TaskDelete />}/>
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </HttpsRedirect>
   )
 }
