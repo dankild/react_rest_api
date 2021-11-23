@@ -11,20 +11,20 @@ export default function TaskList(){
     let users = useFetch("GET", 'users');
     let head = ['ID', 'Task', 'Assignee', ''];
 
+    function username(task){
+        for (let user of users){
+            if (user.id == task.user_id) {
+                return user.username
+            }
+        }
+    }
+
     function Body(){
-        
-        return tasks.map((task) => {
-            console.log(
-                '\nusers = '+users+
-                '\ntask.user_id = '+task.user_id+
-                '\nusers.length = '+users.length+
-                '\nusers[task.user_id-1].username = '+users[task.user_id-1]?.username
-                );
-            return (
+        return tasks.map((task) => {return (
             <tr>
                 <td className="align-middle">{task.id}</td>
                 <td className="align-middle"><AppLink to={"/tasks/"+task.id} text={task.task}/></td>
-                <td className="align-middle"><AppLink to={"/users/"+task.user_id} text={users[task.user_id-1]?.username}/></td>
+                <td className="align-middle"><AppLink to={"/users/"+task.user_id} text={username(task)}/></td>
                 <td className="align-middle text-end"><Buttons link={'tasks/'+task.id}/></td>
             </tr>
         )})

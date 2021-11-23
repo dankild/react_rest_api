@@ -19,18 +19,18 @@ export default function Table(props){
     }
 
     return (
-        <div>
-                {title()}
-                <table className="table">
-                    <thead>
-                        <tr>
-                            {props.head.map((e) => <th key={e}>{e}</th>)}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {props.ready ? props.body() : <Loader />}                     
-                    </tbody>
-                </table>
-        </div> 
+        <>
+            {title()}
+            <table className="table">
+                <thead>
+                    <tr>
+                        {props.head.map((e) => <th key={e}>{e}</th>)}
+                    </tr>
+                </thead>
+                <tbody>
+                    {props.ready ? props.body() : <Loader />}                     
+                </tbody>
+            </table>
+        </> 
     )
 }
