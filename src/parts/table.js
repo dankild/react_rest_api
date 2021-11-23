@@ -17,10 +17,9 @@ export default function Table(props){
             return (<h1>{props.title}</h1>)
         }
     }
+
     return (
         <div>
-            {props.ready ?
-            <>  
                 {title()}
                 <table className="table">
                     <thead>
@@ -29,13 +28,9 @@ export default function Table(props){
                         </tr>
                     </thead>
                     <tbody>
-                        {props.body()}                     
+                        {props.ready ? props.body() : <Loader />}                     
                     </tbody>
                 </table>
-            </>
-            :
-            <Loader />
-            }
         </div> 
     )
 }
