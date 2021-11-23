@@ -18,7 +18,7 @@ export default function UserList(){
                     text={user.username}/>
                 </td>
                 <td className="align-middle text-end">
-                    <Buttons link={user.id}/>
+                    <Buttons link={'users/'+user.id}/>
                 </td>
             </tr>
         )})

@@ -25,7 +25,7 @@ export default function User(){
                 <td className="align-middle">{task.id}</td>
                 <td className="align-middle">
                     <AppLink to={"/tasks/"+task.id} 
-                        text={task.fact}/></td>
+                        text={task.task}/></td>
                 <td className="align-middle">{task.like}</td>
                 <td className="align-middle text-end">
                     <Buttons link={task.id}/>

@@ -9,7 +9,7 @@ let readiness = ['Pending', 'In Progress', 'Done']
 export default function Task(){
     let { id } = useParams();
     let [card, setCard] = React.useState(<Loader />)
-    let link = 'https://dan-ror-rest-api.herokuapp.com/api/v1/'
+    let link = process.env.REACT_APP_BACKEND_SERVER_ADDRESS
 
     function makeCard(task, user){
         return (

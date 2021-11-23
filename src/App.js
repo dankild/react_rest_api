@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import HttpsRedirect from 'react-https-redirect';
 
 import Navbar     from "./parts/navbar";
 import Footer     from "./parts/footer";
@@ -20,9 +19,9 @@ import TaskCreate from "./pages/tasks/create";
 import TaskEdit   from "./pages/tasks/edit";
 import TaskDelete from "./pages/tasks/delete";
 
-export default function App() { 
+export default function App() {
+  
   return (
-    <HttpsRedirect>
       <div>
         <Navbar /> <br/><br/>
         <div className="container">
@@ -43,6 +42,5 @@ export default function App() {
         </div>
         <Footer />
       </div>
-    </HttpsRedirect>
   )
 }

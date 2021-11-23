@@ -50,5 +50,5 @@ export default function TaskForm(props){
         title,
         'facts/'+props.link,
         form,
-        {user_id:Number(userId), fact:task, likes:1});
+        {user_id:Number(userId), task:task, likes:1});
 }

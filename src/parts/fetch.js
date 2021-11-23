@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 export default function useFetch(method, link, data=undefined){
     let [value, setValue] = useState(undefined); 
 
-    link = 'https://dan-ror-rest-api.herokuapp.com/api/v1/'+link;
+    link = process.env.REACT_APP_BACKEND_SERVER_ADDRESS+link;
     let headers = {
 			method:method.toUpperCase(),
 			mode: 'cors',

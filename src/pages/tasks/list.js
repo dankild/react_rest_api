@@ -15,9 +15,9 @@ export default function TaskList(){
         return tasks.map((task) => {return (
             <tr>
                 <td className="align-middle">{task.id}</td>
-                <td className="align-middle"><AppLink to={"/tasks/"+task.id} text={task.fact}/></td>
+                <td className="align-middle"><AppLink to={"/tasks/"+task.id} text={task.task}/></td>
                 <td className="align-middle"><AppLink to={"/users/"+task.user_id} text={users[task.user_id-1].username}/></td>
-                <td className="align-middle text-end"><Buttons link={task.id}/></td>
+                <td className="align-middle text-end"><Buttons link={'tasks/'+task.id}/></td>
             </tr>
         )})
     }
