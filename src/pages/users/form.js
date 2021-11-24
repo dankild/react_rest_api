@@ -26,7 +26,8 @@ export default function UserForm(props){
     return Form(
         props.method, 
         title,
-        'users/'+props.link,
+        'users/',
+        props.link,
         form,
         {username:name});
 }

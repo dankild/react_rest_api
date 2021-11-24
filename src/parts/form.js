@@ -15,17 +15,17 @@ async function submitHandler(event, method, link, data, setter){
     
     let response1 = await fetch(link, headers);
     let response2 = await response1.json();
-    console.log(JSON.stringify(response1))
-    setter(true, response2.message)
+    
+    setter(true, response2.message, response2?.status)
 }
 
-export default function Form(method, title, link, inner_form, data){
-    let {alert, setter} = MyAlert();
+export default function Form(method, title, link, link_id, inner_form, data){
+    let {alert, setter} = MyAlert(link);
 
     let form = (
         <form className="wrapper text-center" 
             onSubmit={(e) => {
-                submitHandler(e, method, link, data, setter)
+                submitHandler(e, method, link+link_id, data, setter)
             }}>
             {alert()}
             <h1>{title}</h1><br/>
