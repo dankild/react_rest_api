@@ -11,6 +11,7 @@ export default function TaskCreate(){
                     prevState={{task: "", user_id:users[0].id}} 
                     method='post'
                     link=''
+                    message="Task succesfully created."
                 />
                 : <Loader />
                 

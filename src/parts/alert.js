@@ -36,7 +36,7 @@ export default function MyAlert(link){
     
     return {
         alert: () => alert.state ? alert_success(alert.message) : "",
-        setter: (state, message, status) =>  setAlert({state, message, status}),
+        setter: (state, message) =>  setAlert({state, message}),
         call_alert: alert_success,
         call_danger: alert_danger,
     }

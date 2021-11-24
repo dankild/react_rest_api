@@ -16,6 +16,7 @@ export default function UserEdit(){
                 prevState={user} 
                 method='PUT'
                 link={id}
+                message="User succesfully edited."
             />
     }
 

@@ -7,5 +7,6 @@ export default function UserCreate(){
                 prevState={{username: ''}} 
                 method='POST'
                 link=''
+                message="User succesfully created."
             />
 }

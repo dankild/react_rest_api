@@ -29,7 +29,8 @@ export default function UserForm(props){
         'users/',
         props.link,
         form,
-        {username:name});
+        {username:name},
+        props.message);
 }
 
 

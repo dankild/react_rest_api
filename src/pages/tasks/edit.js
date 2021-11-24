@@ -16,6 +16,7 @@ export default function TaskEdit(){
                 prevState={task} 
                 method='put'
                 link={id}
+                message="Task succesfully edited."
             />
     }
 

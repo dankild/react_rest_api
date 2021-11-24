@@ -1,6 +1,6 @@
 import MyAlert from "./alert";
 
-async function submitHandler(event, method, link, data, setter){
+async function submitHandler(event, method, link, data, setter, message){
     event.preventDefault();
 
     link = process.env.REACT_APP_BACKEND_SERVER_ADDRESS+link;
@@ -16,16 +16,16 @@ async function submitHandler(event, method, link, data, setter){
     let response1 = await fetch(link, headers);
     let response2 = await response1.json();
     
-    setter(true, response2.message, response2?.status)
+    setter(true, message)
 }
 
-export default function Form(method, title, link, link_id, inner_form, data){
+export default function Form(method, title, link, link_id, inner_form, data, message){
     let {alert, setter} = MyAlert(link);
 
     let form = (
         <form className="wrapper text-center" 
             onSubmit={(e) => {
-                submitHandler(e, method, link+link_id, data, setter)
+                submitHandler(e, method, link+link_id, data, setter, message)
             }}>
             {alert()}
             <h1>{title}</h1><br/>

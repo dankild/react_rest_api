@@ -51,5 +51,6 @@ export default function TaskForm(props){
         'facts/',
         props.link,
         form,
-        {user_id:Number(userId), task:task, likes:1});
+        {user_id:Number(userId), task:task, likes:1},
+        props.message);
 }
