@@ -28,7 +28,7 @@ export default function User(){
                         text={task.task}/></td>
                 <td className="align-middle">{task.like}</td>
                 <td className="align-middle text-end">
-                    <Buttons link={task.id}/>
+                    <Buttons link={'tasks/'+task.id}/>
                 </td>
             </tr>
             :'')}) 

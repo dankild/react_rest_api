@@ -6,7 +6,7 @@ import useFetch from "../../parts/fetch";
 export default function TaskForm(props){
     let users = useFetch("GET", 'users');
 
-    let [task, setTask] = React.useState(props.prevState.fact);
+    let [task, setTask] = React.useState(props.prevState.task);
     let [userId, setUserId] = React.useState(props.prevState.user_id);
     
     let title = props.action+" Task"
