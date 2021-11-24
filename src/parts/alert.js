@@ -15,7 +15,7 @@ export default function MyAlert(link){
         navigate(link);
     }
     
-    let alert_message = (message) => {
+    let alert_success = (message) => {
         return <SweetAlert
                 success
                 title={message}
@@ -24,10 +24,20 @@ export default function MyAlert(link){
                 timeout={2000}
             />
     }
+    let alert_danger = (message) => {
+        return <SweetAlert
+                danger
+                title={message}
+                onConfirm={end_alert}
+                onCancel={end_alert}
+                timeout={2000}
+            />
+    }
     
     return {
-        alert: () => alert.state ? alert_message(alert.message) : "",
+        alert: () => alert.state ? alert_success(alert.message) : "",
         setter: (state, message, status) =>  setAlert({state, message, status}),
-        call_alert: alert_message,
+        call_alert: alert_success,
+        call_danger: alert_danger,
     }
 }

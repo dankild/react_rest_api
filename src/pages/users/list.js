@@ -7,7 +7,16 @@ import Buttons from "../../parts/buttons";
 
 export default function UserList(){   
     let users = useFetch("GET", 'users');
-    let head = ['ID', 'Username', '']
+    let tasks = useFetch("GET", 'facts');
+    let head = ['ID', 'Username', '№ of tasks', '']
+
+    let num_tasks = (user) => {
+        let num_tasks = 0;
+        for (let task of tasks){
+            if (task.user_id == user.id){num_tasks++}
+        }
+        return num_tasks;
+    }
 
     function Body(){
         return users.map((user) => {return (
@@ -16,6 +25,10 @@ export default function UserList(){
                 <td className="align-middle">
                     <AppLink to={"/users/"+user.id} 
                     text={user.username}/>
+                </td>
+                <td className="align-middle">
+                    <AppLink to={"/users/"+user.id} 
+                    text={num_tasks(user)}/>
                 </td>
                 <td className="align-middle text-end">
                     <Buttons link={'users/'+user.id}/>
@@ -28,7 +41,7 @@ export default function UserList(){
                 title="User List" 
                 head={head} 
                 body={Body} 
-                ready={users} 
+                ready={users && tasks} 
                 button={{
                     state:true,
                     text:'user',

@@ -4,5 +4,6 @@ import Delete from "../../parts/delete";
 
 export default function TaskDelete(){
     let { id } = useParams();
+
     return Delete('facts/', id);
 }
