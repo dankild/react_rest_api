@@ -4,6 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    
+    <script>
+      var host = "www.URL.com" || "URL.com";
+      if ((host == window.location.host) && (window.location.protocol != "https:")){
+      window.location.protocol = "https";
+      }
+    </script>
+
     <meta
       name="Todo API App"
       content="Todo service made by Dan on React and Ruby on Rails."
